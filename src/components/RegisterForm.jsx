@@ -9,7 +9,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <div className="bg-white rounded-xl shadow-xl p-8  max-w-md mx-auto my-8 ">
+      <div className="bg-white flex flex-col justify-center  rounded-xl shadow-xl p-8  max-w-md mx-auto my-8 ">
         <div className="text-left mb-6">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             Create account
@@ -122,7 +122,7 @@ const RegisterForm = () => {
             Privacy Policy
           </a>
         </p>
-        {/* Enterprise-grade security box */}
+       
         <div className="bg-blue-50 flex gap-1  border border-blue-100 text-blue-800 p-4 rounded-lg mt-8 ">
           <ShieldCheck className="w-5 h-5 mr-2" />
           <div>

@@ -5,12 +5,12 @@ const Register = () => {
   return (
     <>
       <div>
-        <div className="min-h-screen flex justify-between items-center   ">
-          <div className="flex-1 flex border border-blue-300  min-h-screen bg-[#000102]">
+        <div className="min-h-screen flex justify-between    ">
+          <div className="flex-1 flex hidden lg:flex    bg-[#000102]">
             {/* content */}
             <Performance />
           </div>
-                  <div className="flex-1 border border-blue-300  ">
+                  <div className="flex-1  ">
                       <RegisterForm/>
           </div>
         </div>

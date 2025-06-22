@@ -1,21 +1,19 @@
 import { createContext, useEffect, useState } from "react";
-import auth from "../firebase/Firebase.init"
+import auth from "../firebase/Firebase.init";
 import Loading from "../pages/Loading";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
-
   signInWithPopup,
   signOut,
 } from "firebase/auth";
 
 export const authContext = createContext();
-
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true); 
   const [user, setUser] = useState(null);
 
   const createUser = (email, password) => {
@@ -24,22 +22,23 @@ const AuthProvider = ({ children }) => {
   };
 
   const signInWithGoogle = () => {
+    setLoader(true);
     return signInWithPopup(auth, googleProvider);
+  };
+
+  const logOutUser = () => {
+    setLoader(true);
+    return signOut(auth);
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setLoader(true);
-        setUser(currentUser);
-        setLoader(false);
+      setUser(currentUser);
+      setLoader(false); // ✅ loader বন্ধ হবে user পেলে
     });
 
-    return unsubscribe;
+    return () => unsubscribe();
   }, []);
-
-  const logOutUser = () => {
-    return signOut(auth);
-  };
 
   const authInfo = {
     user,
@@ -47,20 +46,14 @@ const AuthProvider = ({ children }) => {
     loader,
     setLoader,
     createUser,
-
     signInWithGoogle,
-
     logOutUser,
   };
 
-  return (
-    <>
-      {loader ? (
-        <Loading />
-      ) : (
-        <authContext.Provider value={authInfo}>{children}</authContext.Provider>
-      )}
-    </>
+  return loader ? (
+    <Loading />
+  ) : (
+    <authContext.Provider value={authInfo}>{children}</authContext.Provider>
   );
 };
 
