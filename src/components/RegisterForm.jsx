@@ -57,7 +57,7 @@ const RegisterForm = () => {
                 type="email"
                 name="email"
                 placeholder="you@company.com"
-                className="input pl-10 text-xl w-full border border-gray-300 rounded-lg py-6 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="input pl-[44px] text-xl w-full border border-gray-300 rounded-lg py-6 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
@@ -75,7 +75,7 @@ const RegisterForm = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="••••••••"
-                className="input text-xl pl-10 pr-10 w-full border border-gray-300 rounded-lg py-6 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="input text-xl pl-[44px] pr-10 w-full border border-gray-300 rounded-lg py-6 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
               <button

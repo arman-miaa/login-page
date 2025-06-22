@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/Firebase.init";
 import Loading from "../pages/Loading";
 import {
-  createUserWithEmailAndPassword,
+  
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
@@ -16,10 +16,7 @@ const AuthProvider = ({ children }) => {
   const [loader, setLoader] = useState(true); 
   const [user, setUser] = useState(null);
 
-  const createUser = (email, password) => {
-    setLoader(true);
-    return createUserWithEmailAndPassword(auth, email, password);
-  };
+
 
   const signInWithGoogle = () => {
     setLoader(true);
@@ -34,7 +31,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoader(false); // ✅ loader বন্ধ হবে user পেলে
+      setLoader(false); 
     });
 
     return () => unsubscribe();
@@ -45,7 +42,7 @@ const AuthProvider = ({ children }) => {
     setUser,
     loader,
     setLoader,
-    createUser,
+   
     signInWithGoogle,
     logOutUser,
   };

@@ -1,5 +1,6 @@
+import { BsRobot } from "react-icons/bs";
 import logo from "../assets/logo.png";
-import { BarChart, LineChart, ShieldCheck, CheckCircle } from "lucide-react";
+import { BarChart, LineChart, ShieldCheck, CheckCircle, Zap } from "lucide-react";
 
 const Performance = () => {
   return (
@@ -64,6 +65,24 @@ const Performance = () => {
           <CheckCircle className="w-5 h-5 text-blue-500" />
           <span>Weekly Reports</span>
         </p>
+      </div>
+      {/* top box */}
+      <div className="fixed bottom-6 left-6   flex items-center justify-center">
+ 
+        <div className=" bottom-8 left-8 z-10">
+       
+          <div className=" flex items-center justify-center relative top-4 z-30 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+            <Zap className="w-3 h-3 mr-1" /> 
+            DEMO
+          </div>
+         
+          <div className="bg-blue-500 hover:bg-blue-800 w-20 h-20 rounded-full cursor-pointer flex items-center justify-center relative hover:shadow-2xl transition-shadow duration-600">
+            <BsRobot className="w-8 h-8 text-white" /> 
+            
+            <span className="absolute top-4 right-4 w-4 h-4 bg-green-400 rounded-full border-2 border-blue-600"></span>
+          </div>
+        </div>
+     
       </div>
     </div>
   );
