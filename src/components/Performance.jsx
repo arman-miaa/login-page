@@ -15,7 +15,7 @@ const Performance = () => {
           </h1>
           <hr className="w-1/6 border-t-3 text-blue-800  mx-auto" />
           <p className="text-[#bec2c9] mt-4">
-            The intelligent platform that helps marketers optimize their
+            The intelligent platform that helps marketers optimize <br /> their
             campaigns with powerful analytics and AI.
           </p>
         </div>
